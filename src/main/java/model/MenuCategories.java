@@ -13,14 +13,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class MenuCategories 
 {
     @XmlElement(name = "row")
-    private List<MenuItem> menuContents = null;
+    private List<MenuCategory> menuCategories = null;
 
-	public List<MenuItem> getMenuContents() {
-		return menuContents;
+	public List<MenuCategory> getMenuContents() {
+		return menuCategories;
 	}
 
-	public void setMenuContents(List<MenuItem> menuContents) {
-		this.menuContents = menuContents;
+	public void setMenuContents(List<MenuCategory> menuCategories) {
+		this.menuCategories = menuCategories;
 	}
 
     

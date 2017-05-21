@@ -25,6 +25,7 @@ import org.apache.log4j.Logger;
 import database.OracleJDBC;
 import model.OrderContent;
 import model.OrderContents;
+import model.dao.MenuItemsDAO;
 import model.dao.OrderContentsDAO;
 
 public class GetOrderContentData {

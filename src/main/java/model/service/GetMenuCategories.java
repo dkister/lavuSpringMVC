@@ -25,10 +25,13 @@ import javax.xml.bind.Unmarshaller;
 import org.apache.log4j.Logger;
 
 import database.OracleJDBC;
+import model.MenuCategories;
+import model.MenuCategory;
 import model.MenuItem;
 import model.MenuItems;
 import model.OrderContent;
 import model.OrderContents;
+import model.dao.MenuCategoriesDAO;
 
 public class GetMenuCategories {
 	
@@ -46,7 +49,7 @@ public class GetMenuCategories {
 			}
 			
 			String date = new SimpleDateFormat("MM-dd-yyyy").format(new Date());
-			String fileName = "GetMenuItems-"+date;
+			String fileName = "GetMenuCategories-"+date;
 			
 			logger.debug("Begin Import Process");
 			String httpsURL = "http://api.poslavu.com/cp/reqserv/?";
@@ -54,7 +57,7 @@ public class GetMenuCategories {
 			String token = "34Kp24H7y2A3tZ5AvJsU";
 			String key = "nfYxYJW7UivXnGNqKexI";
 			String postvars = "dataname=" + dataname + "&key=" + key + "&token=" + token;
-			postvars += "&table=menu_items&limit=0,1000&valid_xml=1";
+			postvars += "&table=menu_categories&limit=0,1000&valid_xml=1";
 
 			
 			
@@ -113,14 +116,14 @@ public class GetMenuCategories {
 
 		     try {
 		    	 
-		        JAXBContext jaxbContext = JAXBContext.newInstance(MenuItems.class);  
+		        JAXBContext jaxbContext = JAXBContext.newInstance(MenuCategories.class);  
  			    Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();  
-			    MenuItems menuItems = (MenuItems) jaxbUnmarshaller.unmarshal( new File(fileName) );
+ 			    MenuCategories menuCategories = (MenuCategories) jaxbUnmarshaller.unmarshal( new File(fileName) );
 		     
-			    for(MenuItem menuItem : menuItems.getMenuContents())
+			    for(MenuCategory menuCategory : menuCategories.getMenuContents())
 			    {
-			    	logger.debug(menuItem.toString());
-			    	//insertRow(orderContent);
+//			    	logger.debug(menuItem.toString());
+			    	MenuCategoriesDAO.insertRow(menuCategory, dbConnection);
 
 			    }
 

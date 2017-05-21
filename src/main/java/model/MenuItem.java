@@ -18,6 +18,7 @@ public class MenuItem {
 	private int super_group_id;
 	private int forced_modifier_group_id;
 	private int modifier_list_id;
+	private int active;
 	private String happyhour;
 	
 	public int getId() {
@@ -73,6 +74,12 @@ public class MenuItem {
 	}
 	public void setModifier_list_id(int modifier_list_id) {
 		this.modifier_list_id = modifier_list_id;
+	}
+	public int getActive() {
+		return active;
+	}
+	public void setActive(int active) {
+		this.active = active;
 	}
 	public String getHappyhour() {
 		return happyhour;

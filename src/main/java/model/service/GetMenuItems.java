@@ -29,6 +29,7 @@ import model.MenuItem;
 import model.MenuItems;
 import model.OrderContent;
 import model.OrderContents;
+import model.dao.MenuItemsDAO;
 
 public class GetMenuItems {
 	
@@ -119,8 +120,8 @@ public class GetMenuItems {
 		     
 			    for(MenuItem menuItem : menuItems.getMenuContents())
 			    {
-			    	logger.debug(menuItem.toString());
-			    	//insertRow(orderContent);
+			    	//logger.debug(menuItem.toString());
+			    	MenuItemsDAO.insertRow(menuItem, dbConnection);
 
 			    }
 

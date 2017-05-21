@@ -12,6 +12,9 @@ public class MenuCategory {
 	private int id;
 	private int category_id;
 	private int menu_id;
+	private int group_id;
+	private int active;
+	private int ltg_active;
 	private String name;
 	private double price;
 	private int description;
@@ -79,6 +82,26 @@ public class MenuCategory {
 	}
 	public void setHappyhour(String happyhour) {
 		this.happyhour = happyhour;
+	}
+	public int getGroup_id() {
+		return group_id;
+	}
+	public void setGroup_id(int group_id) {
+		this.group_id = group_id;
+	}
+	
+
+	public int getActive() {
+		return active;
+	}
+	public void setActive(int active) {
+		this.active = active;
+	}
+	public int getLtg_active() {
+		return ltg_active;
+	}
+	public void setLtg_active(int ltg_active) {
+		this.ltg_active = ltg_active;
 	}
 	@Override
 	public String toString() {
